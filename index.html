@@ -10,7 +10,9 @@
     <h1>Yellow!</h1>
     <h3 id="h3"></h3>
     <script>
-      document.getElementById("h3").innerHTML = window.location.search;
+      let s = window.location.search;
+      const [a, b] = s.substring(1, s.length).split("=");
+      document.getElementById("h3").innerHTML = `${a} is in ${b}`;
     </script>
   </body>
 </html>
