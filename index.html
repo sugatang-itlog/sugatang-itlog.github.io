@@ -23,6 +23,7 @@
             "https://api.manychat.com/fb/sending/sendContent",
             {
               headers: {
+                Content-Type: "application/json",
                 Authorization:
                   "Bearer 104994048359724:2003171daf9dbda15a1dd2e7a090baec",
               },
@@ -42,7 +43,7 @@
               },
             },
             function (data, status) {
-              return [data, status];
+              console.log(data, status);
             }
           );
         });
