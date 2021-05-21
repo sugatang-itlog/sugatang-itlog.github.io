@@ -23,6 +23,8 @@
             "https://api.manychat.com/fb/sending/sendContent",
             {
               headers: {
+                "Access-Control-Allow-Origin":
+                  "https://sugatang-itlog.github.io",
                 Authorization:
                   "Bearer 104994048359724:2003171daf9dbda15a1dd2e7a090baec",
               },
@@ -43,7 +45,8 @@
             },
             function (data, status) {
               console.log(data, status);
-            }
+            },
+            "json"
           );
         });
       });
