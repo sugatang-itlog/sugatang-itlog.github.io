@@ -13,7 +13,7 @@
     <button>Flow 1</button>
 
     <script>
-      let s = window.location.search;
+      const s = window.location.search;
       const [userid, uid] = s.substring(1, s.length).split("&")[0].split("=");
       document.getElementById("h3").innerHTML = `The ${userid} is ${uid}`;
 
@@ -26,21 +26,24 @@
               {
                 type: "text",
                 text: "Nice. Bwahahahaha!",
-              }
-            ]
-          }
-        }
+              },
+            ],
+          },
+        },
       };
 
       $(document).ready(() => {
         $("button").click(() => {
           $.ajax({
-            'https://api.manychat.com/fb/sending/sendContent',
-            method: 'POST',
-            headers: {Authorization: "Bearer 104994048359724:2003171daf9dbda15a1dd2e7a090baec"},
-            data: payload
-          })
-        })
+            url: "https://api.manychat.com/fb/sending/sendContent",
+            method: "POST",
+            headers: {
+              Authorization:
+                "Bearer 104994048359724:2003171daf9dbda15a1dd2e7a090baec",
+            },
+            data: payload,
+          });
+        });
       });
     </script>
   </body>
