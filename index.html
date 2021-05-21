@@ -15,9 +15,7 @@
     <script>
       let s = window.location.search;
       const [userid, uid] = s.substring(1, s.length).split("&")[0].split("=");
-      //document.getElementById(
-      //  "h3"
-      //).innerHTML = `This ${a.toUpperCase()} is in ${b.toUpperCase()}`;
+      document.getElementById("h3").innerHTML = `The ${userid} is ${uid}`;
 
       $(document).ready(function () {
         $("button").click(function () {
