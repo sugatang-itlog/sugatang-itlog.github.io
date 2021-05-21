@@ -17,39 +17,31 @@
       const [userid, uid] = s.substring(1, s.length).split("&")[0].split("=");
       document.getElementById("h3").innerHTML = `The ${userid} is ${uid}`;
 
-      $(document).ready(function () {
-        $("button").click(function () {
-          $.post(
-            "https://api.manychat.com/fb/sending/sendContent",
-            {
-              headers: {
-                "Access-Control-Allow-Origin":
-                  "https://sugatang-itlog.github.io",
-                Authorization:
-                  "Bearer 104994048359724:2003171daf9dbda15a1dd2e7a090baec",
+      const payload = {
+        subscriber_id: uid,
+        data: {
+          version: "v2",
+          content: {
+            messages: [
+              {
+                type: "text",
+                text: "Nice. Bwahahahaha!",
               },
-              payload: {
-                subscriber_id: uid,
-                data: {
-                  version: "v2",
-                  content: {
-                    messages: [
-                      {
-                        type: "text",
-                        text: "Nice. Bwahahahaha!",
-                      },
-                    ],
-                  },
-                },
-              },
-            },
-            function (data, status) {
-              console.log(data, status);
-            },
-            "json"
-          );
-        });
-      });
+            ],
+          },
+        },
+      }
+
+      $(document).ready(() => {
+        $("button").click(() => {
+          $.ajax(
+            'https://api.manychat.com/fb/sending/sendContent',
+            method: 'POST',
+            headers: {Authorization: "Bearer 104994048359724:2003171daf9dbda15a1dd2e7a090baec"},
+            data: payload
+          )
+        })
+      })
     </script>
   </body>
 </html>
