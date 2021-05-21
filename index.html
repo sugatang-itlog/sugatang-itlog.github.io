@@ -18,16 +18,33 @@
       document.getElementById(
         "h3"
       ).innerHTML = `This ${a.toUpperCase()} is in ${b.toUpperCase()}`;
+
       $(document).ready(function () {
         $("button").click(function () {
           $.post(
-            "demo_test_post.asp",
+            "https://api.manychat.com/fb/sending/sendContent",
             {
-              name: "Donald Duck",
-              city: "Duckburg",
+              headers: {
+                Authorization:
+                  "Bearer 104994048359724:2003171daf9dbda15a1dd2e7a090baec",
+              },
+              payload: {
+                subscriber_id: 3556452134464248,
+                data: {
+                  version: "v2",
+                  content: {
+                    messages: [
+                      {
+                        type: "text",
+                        text: "Nice. Bwahahahaha!",
+                      },
+                    ],
+                  },
+                },
+              },
             },
             function (data, status) {
-              alert("Data: " + data + "\nStatus: " + status);
+              return [data, status];
             }
           );
         });
