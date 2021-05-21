@@ -14,10 +14,10 @@
 
     <script>
       let s = window.location.search;
-      const [a, b] = s.substring(1, s.length).split("&")[0].split("=");
-      document.getElementById(
-        "h3"
-      ).innerHTML = `This ${a.toUpperCase()} is in ${b.toUpperCase()}`;
+      const [userid, uid] = s.substring(1, s.length).split("&")[0].split("=");
+      //document.getElementById(
+      //  "h3"
+      //).innerHTML = `This ${a.toUpperCase()} is in ${b.toUpperCase()}`;
 
       $(document).ready(function () {
         $("button").click(function () {
@@ -29,7 +29,7 @@
                   "Bearer 104994048359724:2003171daf9dbda15a1dd2e7a090baec",
               },
               payload: {
-                subscriber_id: 3556452134464248,
+                subscriber_id: uid,
                 data: {
                   version: "v2",
                   content: {
