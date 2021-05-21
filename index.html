@@ -5,14 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yellow World!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
     <h1>Yellow!</h1>
     <h3 id="h3"></h3>
+    <button>Send an HTTP POST request to a page and get the result back</button>
+
     <script>
       let s = window.location.search;
       const [a, b] = s.substring(1, s.length).split("&")[0].split("=");
-      document.getElementById("h3").innerHTML = `${a} is in ${b}`;
+      document.getElementById(
+        "h3"
+      ).innerHTML = `This ${a.toUpperCase()} is in ${b.toUpperCase()}`;
+      $(document).ready(function () {
+        $("button").click(function () {
+          $.post(
+            "demo_test_post.asp",
+            {
+              name: "Donald Duck",
+              city: "Duckburg",
+            },
+            function (data, status) {
+              alert("Data: " + data + "\nStatus: " + status);
+            }
+          );
+        });
+      });
     </script>
   </body>
 </html>
