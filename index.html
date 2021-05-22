@@ -36,7 +36,10 @@
         $("button").click(() => {
           $.ajax({
             url: "https://api.manychat.com/fb/sending/sendContent",
-            method: "POST",
+            type: "POST",
+            crossDomain: true,
+            contentType: "application/json",
+            dataType: "jsonp",
             headers: {
               Authorization:
                 "Bearer 104994048359724:2003171daf9dbda15a1dd2e7a090baec",
