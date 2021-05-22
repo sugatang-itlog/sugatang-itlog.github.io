@@ -18,6 +18,13 @@
       <button id="post-btn">POST data</button>
     </section>
     <h4 id="h4"></h4>
+    <button
+      id="shBtn"
+      style="display: none; visibility: hidden"
+      onclick="window.close('','_parent','');"
+    >
+      CLOSE
+    </button>
 
     <script>
       const s = window.location.search;
@@ -40,6 +47,8 @@
             success: function (response) {
               const { status } = response;
               document.getElementById("h4").innerHTML = status;
+              document.getElementById("shBtn").style.display = "block";
+              document.getElementById("shBtn").style.visibility = "visible";
               console.log(response);
             },
             error: function (xhr, status) {
