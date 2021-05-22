@@ -18,18 +18,18 @@
       document.getElementById("h3").innerHTML = `The ${userid} is ${uid}`;
 
       const payload = {
-        "subscriber_id": uid,
-        "data": {
-          "version": "v2",
-          "content": {
-           "messages": [
+        subscriber_id: uid,
+        data: {
+          version: "v2",
+          content: {
+            messages: [
               {
-                "type": "text",
-                "text": "Nice. Bwahahahaha!",
-              }
-            ]
-          }
-        }
+                type: "text",
+                text: "Nice. Bwahahahaha!",
+              },
+            ],
+          },
+        },
       };
 
       $(document).ready(() => {
@@ -44,7 +44,7 @@
               Authorization:
                 "Bearer 104994048359724:2003171daf9dbda15a1dd2e7a090baec",
             },
-            data: payload,
+            data: JSON.stringify(payload),
           });
         });
       });
