@@ -17,6 +17,7 @@
       <button id="get-btn">GET data</button>
       <button id="post-btn">POST data</button>
     </section>
+    <h4 id="h4"></h4>
 
     <script>
       const s = window.location.search;
@@ -37,6 +38,8 @@
             dataType: "json",
             crossDomain: true,
             success: function (response) {
+              const { status } = response;
+              document.getElementById("h4").innerHTML = status;
               console.log(response);
             },
             error: function (xhr, status) {
