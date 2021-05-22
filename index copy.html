@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yellow World!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>Yellow!</h1>
+    <h3 id="h3"></h3>
+    <button>Flow 1</button>
+
+    <script>
+      const s = window.location.search;
+      const [userid, uid] = s.substring(1, s.length).split("&")[0].split("=");
+      document.getElementById("h3").innerHTML = `The ${userid} is ${uid}`;
+
+      const payload = {
+        subscriber_id: uid,
+        data: {
+          version: "v2",
+          content: {
+            messages: [
+              {
+                type: "text",
+                text: "Nice. Bwahahahaha!",
+              },
+            ],
+          },
+        },
+      };
+
+      $(document).ready(() => {
+        $("button").click(() => {
+          $.ajax({
+            url: "https://api.manychat.com/fb/sending/sendContent",
+            type: "POST",
+            crossDomain: true,
+            dataType: "jsonp",
+            headers: {
+              Authorization:
+                "Bearer 104994048359724:2003171daf9dbda15a1dd2e7a090baec",
+            },
+            data: payload,
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
